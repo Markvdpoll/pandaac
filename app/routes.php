@@ -31,6 +31,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('account', 'AccountController@index');
 Route::get('account/login', ['as' => 'login', 'uses' => 'AccountController@login']);
 Route::post('account/login', 'AccountController@processLogin');
+Route::get('account/logout', 'AccountController@logout');
 Route::get('account/create', 'AccountController@create');
 Route::post('account/create', 'AccountController@processCreation');
 

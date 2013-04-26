@@ -23,6 +23,16 @@ class AccountController extends BaseController
 			]
 		]);
 
+		// Require the user to NOT be authenticated before proceeding.
+		$this->beforeFilter('guest', [
+			'only' => [
+				'login', 
+				'processLogin',
+				'create',
+				'processCreation',
+			],
+		]);
+
 		parent::__construct();
 	}
 
@@ -35,7 +45,11 @@ class AccountController extends BaseController
 	**/
 	public function index()
 	{
-		return 'My Account';
+		$this->title('lang::pandaac/account.title', true);
+
+		$this->layout->nest('content', 'account.index', [
+			'user' => Auth::user(),
+		]);
 	}
 
 
@@ -80,7 +94,30 @@ class AccountController extends BaseController
 			return Redirect::to('account/login')->withErrors($validator);
 		}
 
-		return 'Yay, you logged in!!!';
+
+		// Create an account object.
+		$object  = SchemaObject::create('Account');
+		$method  = 'where'.ucfirst($object->field('name'));
+
+		// Find and authenticate the user.
+		$account = $object->$method(Input::get('account'))->wherePassword(pandaac::password(Input::get('password')))->first();
+		Auth::loginUsingId($account->id);
+
+		return Redirect::to('account');
+	}
+
+
+	/**
+	 * Process logging out.
+	 *
+	 * @access public
+	 * @return Redirect
+	**/
+	public function logout()
+	{
+		Auth::logout();
+
+		return Redirect::route('login');
 	}
 
 

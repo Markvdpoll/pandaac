@@ -33,7 +33,7 @@
 					<ul>
 						<li><a href="{{ URL::to('/') }}"><figure class="nav-button-home"></figure></a></li>
 						<li><a href="{{ URL::to('account') }}"><figure class="nav-button-account"></figure></a></li>
-						@if ( ! Auth::guest())
+						@if (Auth::check())
 							<li><a href="{{ URL::to('account/logout') }}"><figure class="nav-button-logout"></figure></a></li>
 						@else
 							<li><a href="{{ URL::to('account/create') }}"><figure class="nav-button-create"></figure></a></li>
@@ -113,7 +113,7 @@
 				<!-- Right Sidepanel -->
 				<section class="panel" id="right">
 
-					@if ( ! Route::is('login'))
+					@if (! Auth::check() and ! Route::is('login'))
 						<section class="case">
 							<h2><img src="{{ Theme::asset('img/cases/titles/account/index.png') }}" alt="Account"></h2>
 							

@@ -29,7 +29,7 @@
 
 				<p class="inline">
 					{{ Form::label('remember', Lang::get('pandaac/account.registration.remember')) }}
-					{{ Form::checkbox('remember', 1, false, array('id' => 'remember')) }}
+					{{ Form::checkbox('remember', 'on', false, ['id' => 'remember']) }}
 				</p>
 
 				<p>
