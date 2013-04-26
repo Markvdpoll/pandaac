@@ -1,0 +1,26 @@
+body.werewolf {
+	background-color: #1A1A1A;
+
+	.selection() {
+		text-shadow: 0px 1px 0px #000000;
+		background-color: #8A3434;
+		color: #EEEEEE;
+	}
+	::-moz-selection {
+		.selection;
+	}
+	::selection {
+		.selection;
+	}
+
+	section#skeleton {
+		header {
+			background-image: url('../img/_werewolf/background.png');
+		}
+		section#wrapper {
+			section#navigation {
+				background-image: url( '../img/_werewolf/navigation/background.png' );
+			}
+		}
+	}
+}

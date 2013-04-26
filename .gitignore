@@ -1,0 +1,7 @@
+/bootstrap/compiled.php
+/vendor
+/app/models/Schema/otserv
+composer.phar
+composer.lock
+.DS_Store
+artisan

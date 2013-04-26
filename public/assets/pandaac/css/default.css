@@ -1,0 +1,792 @@
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+body.werewolf {
+  background-color: #1A1A1A;
+}
+body.werewolf ::-moz-selection {
+  text-shadow: 0px 1px 0px #000000;
+  background-color: #8A3434;
+  color: #EEEEEE;
+}
+body.werewolf ::selection {
+  text-shadow: 0px 1px 0px #000000;
+  background-color: #8A3434;
+  color: #EEEEEE;
+}
+body.werewolf section#skeleton header {
+  background-image: url('../img/_werewolf/background.png');
+}
+body.werewolf section#skeleton section#wrapper section#navigation {
+  background-image: url('../img/_werewolf/navigation/background.png');
+}
+@font-face {
+  font-family: "Overlock";
+  src: url('../fonts/overlock/Overlock-Regular-OTF-webfont.eot');
+  src: url('../fonts/overlock/Overlock-Regular-OTF-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/overlock/Overlock-Regular-OTF-webfont.woff') format('woff'), url('../fonts/overlock/Overlock-Regular-OTF-webfont.ttf') format('truetype'), url('../fonts/overlock/Overlock-Regular-OTF-webfont.svg#OverlockRegular') format('svg');
+  letter-spacing: 5px;
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Overlock";
+  src: url('../fonts/overlock/Overlock-Italic-OTF-webfont.eot');
+  src: url('../fonts/overlock/Overlock-Italic-OTF-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/overlock/Overlock-Italic-OTF-webfont.woff') format('woff'), url('../fonts/overlock/Overlock-Italic-OTF-webfont.ttf') format('truetype'), url('../fonts/overlock/Overlock-Italic-OTF-webfont.svg#OverlockItalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Overlock";
+  src: url('../fonts/overlock/Overlock-Bold-OTF-webfont.eot');
+  src: url('../fonts/overlock/Overlock-Bold-OTF-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/overlock/Overlock-Bold-OTF-webfont.woff') format('woff'), url('../fonts/overlock/Overlock-Bold-OTF-webfont.ttf') format('truetype'), url('../fonts/overlock/Overlock-Bold-OTF-webfont.svg#OverlockBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+body {
+  font-family: Overlock, "Trebuchet MS", Sans-Serif;
+  color: #bdbdbd;
+  background-color: #141518;
+  font-size: 13px;
+  margin: 0;
+}
+::-moz-selection {
+  text-shadow: 0px 1px 0px #000000;
+  background-color: #80a4d4;
+  color: #EEEEEE;
+}
+::selection {
+  text-shadow: 0px 1px 0px #000000;
+  background-color: #80a4d4;
+  color: #EEEEEE;
+}
+/* Global Elements */
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section,
+figure {
+  display: block;
+}
+img {
+  border: none;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+}
+input[type="text"],
+input[type="password"] {
+  background: url('../img/form/input.png');
+  padding: 0px 5px 1px;
+  border: none;
+  height: 21px;
+  width: 135px;
+  margin: 2px;
+}
+input[type="text"].mini,
+input[type="password"].mini {
+  background: url('../img/form/input-mini.png');
+  width: 105px;
+}
+input[type="password"] {
+  padding: 0px 5px 3px;
+  height: 19px;
+}
+label {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: #2466A3;
+}
+a:hover,
+a.active {
+  text-decoration: underline;
+  color: #8b8b8b;
+  outline: none;
+}
+a.active {
+  text-decoration: none;
+}
+ul {
+  margin: 5px 5px 5px 30px;
+  list-style-type: disc;
+}
+ol {
+  margin: 2px 5px 2px 40px;
+  list-style-type: decimal;
+}
+blockquote {
+  text-shadow: 0 1px 0 #000;
+  background-color: #152134;
+  border: 1px solid #223452;
+  border-left-width: 5px;
+  margin: 5px 10px;
+  font-size: 110%;
+  color: #6b81a5;
+  padding: 3px;
+}
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: bold;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+/* Global Classes */
+.online {
+  color: #619221;
+}
+.blocked,
+.offline {
+  color: #c22f2f;
+}
+.button {
+  background: url('../img/form/button.png');
+  text-shadow: 0px 1px 0px #000000;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #FFFFFF;
+  border: none;
+  height: 28px;
+  width: 117px;
+  padding: 0px;
+  margin: 2px;
+}
+.button.login {
+  background: url('../img/form/buttons/login.png');
+}
+.button.create {
+  background: url('../img/form/buttons/create.png');
+}
+p.error,
+p.errors,
+ul.error,
+ul.errors {
+  border-bottom: 1px solid #393939;
+  border-top: 1px solid #393939;
+  text-shadow: 0px 1px 0px #000;
+  background-color: #1f1f1f;
+  margin: 20px 10px 10px;
+  line-height: 18px;
+  padding: 5px 10px;
+  list-style: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+p.error li,
+p.errors li,
+ul.error li,
+ul.errors li {
+  padding: 0px;
+  margin: 0px;
+}
+p.error li:before,
+p.errors li:before,
+ul.error li:before,
+ul.errors li:before {
+  content: "ERROR: ";
+  margin-right: 3px;
+  font-weight: bold;
+  color: #934646;
+}
+p.error:before,
+p.errors:before {
+  content: "ERROR: ";
+  font-weight: bold;
+  color: #934646;
+}
+.button.search {
+  vertical-align: middle;
+}
+section.table {
+  margin: 10px;
+}
+section.table table {
+  border-bottom: 1px solid #000;
+  border-collapse: collapse;
+  border-spacing: 10px;
+  color: #a6a6a6;
+  width: 100%;
+}
+section.table table tr th {
+  padding: 4px 15px;
+  text-align: left;
+}
+section.table table tr td {
+  background-color: #131313;
+  border-right: 1px solid #000;
+  border-top: 1px solid #000;
+  padding: 12px 15px;
+}
+section.table table tr td:first-child {
+  background-image: none;
+}
+section.table table tr:nth-child(odd) td {
+  background-color: #0e0e0e;
+}
+.refresh {
+  background: url('../img/refresh.png') 0px 0px no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -1px;
+  height: 24px;
+  width: 24px;
+}
+.refresh:hover {
+  background-position: 0px -24px;
+}
+.centered {
+  text-align: center;
+}
+/* Site Wrapper */
+section#skeleton {
+  width: 1081px;
+  margin: 0 auto;
+}
+section#skeleton header {
+  background: url('../img/background.png');
+  position: relative;
+  text-align: center;
+  height: 350px;
+}
+section#skeleton header section#logo {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  right: 15px;
+}
+section#skeleton section#wrapper {
+  background-color: #000000;
+  overflow: hidden;
+  padding: 9px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+section#skeleton section#wrapper section#navigation {
+  background: url('../img/navigation/background.png') no-repeat;
+  overflow: hidden;
+  height: 40px;
+}
+section#skeleton section#wrapper section#navigation nav {
+  position: relative;
+  text-align: left;
+  float: right;
+  left: -50%;
+}
+section#skeleton section#wrapper section#navigation nav ul {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  left: 50%;
+}
+section#skeleton section#wrapper section#navigation nav ul li {
+  position: relative;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+section#skeleton section#wrapper section#navigation nav ul li a {
+  border: 1px solid transparent;
+  display: block;
+  height: 38px;
+  margin: 0px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a:hover,
+section#skeleton section#wrapper section#navigation nav ul li a.current {
+  background: url('../img/navigation/hover.png');
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure {
+  background: url('../img/navigation/titles.png') 0px 0px no-repeat;
+  margin: 13px 14px;
+  height: 14px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-home {
+  background-position: 0px -14px;
+  width: 43px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-account {
+  background-position: 0px -28px;
+  width: 73px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-logout {
+  background-position: 0px -42px;
+  width: 51px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-create {
+  background-position: 0px -56px;
+  width: 66px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-houses {
+  background-position: 0px -70px;
+  width: 57px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-highscores {
+  background-position: 0px -84px;
+  width: 90px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-rules {
+  background-position: 0px -98px;
+  width: 44px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-guilds {
+  background-position: 0px -112px;
+  width: 50px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-forum {
+  background-position: 0px -126px;
+  width: 51px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-downloads {
+  background-position: 0px -140px;
+  width: 95px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-donate {
+  background-position: 0px -154px;
+  width: 61px;
+}
+section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-info {
+  background-position: 0px -168px;
+  width: 93px;
+}
+section#skeleton section#wrapper section#content {
+  zoom: 1;
+}
+section#skeleton section#wrapper section#content:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+section#skeleton section#wrapper section.panel {
+  width: 602px;
+  float: left;
+}
+section#skeleton section#wrapper section.panel section.case {
+  background: url('../img/cases/side-background.png') 0px 32px no-repeat;
+  border: 1px solid #1A1A1A;
+  border-top: none;
+  padding: 33px 0px 0px;
+  position: relative;
+  line-height: 14px;
+  margin-top: 9px;
+  color: #C1C1C1;
+}
+section#skeleton section#wrapper section.panel section.case h1,
+section#skeleton section#wrapper section.panel section.case ul.case-title {
+  background: url('../img/cases/header.png');
+  font-weight: normal;
+  position: absolute;
+  font-size: 12px;
+  height: 33px;
+  right: 0px;
+  left: 0px;
+  z-index: 3;
+  padding: 0;
+  margin: 0;
+  top: 0px;
+}
+section#skeleton section#wrapper section.panel section.case h1 img,
+section#skeleton section#wrapper section.panel section.case ul.case-title img {
+  margin: 5px 0px 0px 5px;
+}
+section#skeleton section#wrapper section.panel section.case ul.case-title {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  padding-left: 5px;
+  zoom: 1;
+}
+section#skeleton section#wrapper section.panel section.case ul.case-title:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+section#skeleton section#wrapper section.panel section.case ul.case-title li {
+  padding: 0px;
+  margin: 0px;
+  float: left;
+}
+section#skeleton section#wrapper section.panel section.case ul.case-title li img {
+  margin-left: 0px;
+}
+section#skeleton section#wrapper section.panel section.case p {
+  margin: 10px;
+}
+section#skeleton section#wrapper section.panel#left,
+section#skeleton section#wrapper section.panel#right {
+  width: 221px;
+}
+section#skeleton section#wrapper section.panel#left section.case,
+section#skeleton section#wrapper section.panel#right section.case {
+  background: url('../img/cases/side-background.png') 0px 32px no-repeat;
+  border: 1px solid #1A1A1A;
+  padding: 33px 0px 0px;
+  position: relative;
+  line-height: 14px;
+  margin-top: 9px;
+  font-size: 12px;
+  color: #989898;
+}
+section#skeleton section#wrapper section.panel#left section.case:after,
+section#skeleton section#wrapper section.panel#right section.case:after {
+  content: url('../img/cases/side-separator.png');
+  position: absolute;
+  bottom: -4px;
+  left: -1px;
+  z-index: 3;
+}
+section#skeleton section#wrapper section.panel#left section.case h2,
+section#skeleton section#wrapper section.panel#right section.case h2 {
+  background: url('../img/cases/side-header.png');
+  position: absolute;
+  height: 33px;
+  right: -1px;
+  left: -1px;
+  z-index: 3;
+  padding: 0;
+  margin: 0;
+  top: -1px;
+}
+section#skeleton section#wrapper section.panel#left section.case h2 img,
+section#skeleton section#wrapper section.panel#right section.case h2 img {
+  margin: 5px 0px 0px 5px;
+}
+section#skeleton section#wrapper section.panel#left section.case ul.submenu,
+section#skeleton section#wrapper section.panel#right section.case ul.submenu {
+  margin: 5px 15px 10px;
+  list-style: none;
+  padding: 0;
+}
+section#skeleton section#wrapper section.panel#left section.case ul.submenu li,
+section#skeleton section#wrapper section.panel#right section.case ul.submenu li {
+  font-size: 13px;
+  margin: 5px;
+}
+section#skeleton section#wrapper section.panel#left section.case ul.submenu li:before,
+section#skeleton section#wrapper section.panel#right section.case ul.submenu li:before {
+  vertical-align: middle;
+  margin-right: 4px;
+  content: "\2192";
+  font-size: 15px;
+  color: #6e6e6e;
+}
+section#skeleton section#wrapper section.panel#left {
+  margin-right: 9px;
+}
+section#skeleton section#wrapper section.panel#right {
+  margin-left: 9px;
+}
+section#skeleton footer {
+  text-align: center;
+  color: #4A4A4A;
+  padding: 10px;
+  height: 80px;
+}
+section#skeleton footer strong {
+  color: #646464;
+}
+section.case {
+  /* Account Login & Account Create */
+
+  /* Account Index (as online) */
+
+}
+section.case table.case-table {
+  padding: 10px;
+  width: 100%;
+}
+section.case #case-account-index table.case-table.account-table tbody tr th,
+section.case #case-account-create table.case-table.account-table tbody tr th {
+  vertical-align: middle;
+  padding-right: 3px;
+  text-align: right;
+  font-weight: bold;
+  width: 120px;
+}
+section.case #case-account-index table.case-table.account-table tbody tr th#account-create-captcha img,
+section.case #case-account-create table.case-table.account-table tbody tr th#account-create-captcha img {
+  vertical-align: middle;
+  margin-top: 4px;
+}
+section.case #case-account-index table.case-table.account-table tbody tr td,
+section.case #case-account-create table.case-table.account-table tbody tr td {
+  vertical-align: middle;
+  height: 28px;
+}
+section.case #case-account-index table.case-table tbody tr.large-space th,
+section.case #case-account-create table.case-table tbody tr.large-space th,
+section.case #case-account-index table.case-table tbody tr.large-space td,
+section.case #case-account-create table.case-table tbody tr.large-space td {
+  padding-top: 14px;
+}
+section.case #case-account-index table.case-table tbody tr.small-space th,
+section.case #case-account-create table.case-table tbody tr.small-space th,
+section.case #case-account-index table.case-table tbody tr.small-space td,
+section.case #case-account-create table.case-table tbody tr.small-space td {
+  padding-top: 7px;
+}
+section.case #case-account-index table.case-table tbody tr td,
+section.case #case-account-create table.case-table tbody tr td {
+  vertical-align: top;
+}
+section.case #case-account-index table.case-table tbody tr td h3,
+section.case #case-account-create table.case-table tbody tr td h3 {
+  font-weight: bold;
+  margin: 0px 10px;
+  font-size: 12px;
+  padding: 0px;
+}
+section.case #case-account-index table.case-table tbody tr td.account-helpful,
+section.case #case-account-create table.case-table tbody tr td.account-helpful {
+  vertical-align: top;
+  width: 50%;
+}
+section.case #case-account-index table.case-table tbody tr td.account-helpful ul,
+section.case #case-account-create table.case-table tbody tr td.account-helpful ul {
+  padding: 5px 0px 0px 20px;
+  margin: 0px 20px;
+}
+section.case #case-account-index table.case-table tbody tr td.account-helpful ul li,
+section.case #case-account-create table.case-table tbody tr td.account-helpful ul li {
+  margin: 0px;
+}
+section.case #case-account-online section#table-account-characters table tr td:first-child,
+section.case #case-account-online section#table-account-characters table tr td:nth-child(1) {
+  text-align: center;
+  width: 8%;
+}
+section.case #case-account-online section#table-account-characters table tr td:nth-child(2) {
+  width: 40%;
+}
+section.case #case-account-online section#table-account-characters table tr td:last-child:nth-child(5) {
+  padding-right: 10px;
+  text-align: right;
+  font-size: 11px;
+  width: 20%;
+}
+section.case #case-account-online section#table-account-characters table tr td span.character-info {
+  font-size: 11px;
+  display: block;
+  color: #646464;
+}
+.columns {
+  overflow: hidden;
+  zoom: 1;
+}
+.columns:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+.columns .column {
+  float: left;
+  width: 50%;
+}
+.columns.l10-r90 .column:first-child {
+  width: 10%;
+}
+.columns.l10-r90 .column {
+  width: 90%;
+}
+.columns.l15-r85 .column:first-child {
+  width: 15%;
+}
+.columns.l15-r85 .column {
+  width: 85%;
+}
+.columns.l20-r80 .column:first-child {
+  width: 20%;
+}
+.columns.l20-r80 .column {
+  width: 80%;
+}
+.columns.l25-r75 .column:first-child {
+  width: 25%;
+}
+.columns.l25-r75 .column {
+  width: 75%;
+}
+.columns.l30-r70 .column:first-child {
+  width: 30%;
+}
+.columns.l30-r70 .column {
+  width: 70%;
+}
+.columns.l35-r65 .column:first-child {
+  width: 35%;
+}
+.columns.l35-r65 .column {
+  width: 65%;
+}
+.columns.l40-r60 .column:first-child {
+  width: 40%;
+}
+.columns.l40-r60 .column {
+  width: 60%;
+}
+.columns.l45-r55 .column:first-child {
+  width: 45%;
+}
+.columns.l45-r55 .column {
+  width: 55%;
+}
+.columns.l50-r50 .column:first-child {
+  width: 50%;
+}
+.columns.l50-r50 .column {
+  width: 50%;
+}
+.columns.l55-r45 .column:first-child {
+  width: 55%;
+}
+.columns.l55-r45 .column {
+  width: 45%;
+}
+.columns.l60-r40 .column:first-child {
+  width: 60%;
+}
+.columns.l60-r40 .column {
+  width: 40%;
+}
+.columns.l65-r35 .column:first-child {
+  width: 65%;
+}
+.columns.l65-r35 .column {
+  width: 35%;
+}
+.columns.l70-r30 .column:first-child {
+  width: 70%;
+}
+.columns.l70-r30 .column {
+  width: 30%;
+}
+.columns.l75-r25 .column:first-child {
+  width: 75%;
+}
+.columns.l75-r25 .column {
+  width: 25%;
+}
+.columns.l80-r20 .column:first-child {
+  width: 80%;
+}
+.columns.l80-r20 .column {
+  width: 20%;
+}
+.columns.l85-r15 .column:first-child {
+  width: 85%;
+}
+.columns.l85-r15 .column {
+  width: 15%;
+}
+.columns.l90-r10 .column:first-child {
+  width: 90%;
+}
+.columns.l90-r10 .column {
+  width: 10%;
+}
+#route-login #form-login,
+#route-account-create #form-registration {
+  margin: 15px 0 10px;
+}
+#route-login #form-login p,
+#route-account-create #form-registration p {
+  margin: 2px !important;
+}
+#route-login #form-login p label,
+#route-account-create #form-registration p label {
+  display: inline-block;
+  padding-right: 3px;
+  text-align: right;
+  width: 110px;
+}
+#route-login #form-login p.inline,
+#route-account-create #form-registration p.inline {
+  width: 113px;
+  text-align: right;
+  padding-top: 5px;
+  display: block;
+  float: left;
+}
+#route-login #form-login p.inline label,
+#route-account-create #form-registration p.inline label {
+  padding-right: 0px;
+  display: inline;
+}
+#route-login #form-login ul li,
+#route-account-create #form-registration ul li {
+  margin: 3px 0;
+}
+#route-login #form-login#form-registration p#captcha-img,
+#route-account-create #form-registration#form-registration p#captcha-img {
+  padding: 5px 0;
+  zoom: 1;
+}
+#route-login #form-login#form-registration p#captcha-img:after,
+#route-account-create #form-registration#form-registration p#captcha-img:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+#route-login #form-login#form-registration p#captcha-img label,
+#route-account-create #form-registration#form-registration p#captcha-img label {
+  width: 113px;
+  display: block;
+  float: left;
+}
+#route-login #form-login#form-registration p#captcha-img label img,
+#route-account-create #form-registration#form-registration p#captcha-img label img {
+  margin-top: 5px;
+}
+#route-login #form-login#form-registration p.pushed,
+#route-account-create #form-registration#form-registration p.pushed {
+  padding-left: 115px;
+}
+#route-login #form-login#form-registration p label,
+#route-account-create #form-registration#form-registration p label {
+  width: 110px;
+}
