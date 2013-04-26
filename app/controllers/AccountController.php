@@ -77,6 +77,8 @@ class AccountController extends BaseController
 	**/
 	public function processLogin()
 	{
+		Input::flash();
+
 		// Create a validation.
 		$validator = Validator::make(Input::only('account', 'password'), 
 		[
@@ -179,6 +181,9 @@ class AccountController extends BaseController
 		$account->password					 = pandaac::password(Input::get('password'));
 		$account->email						 = Input::get('email');
 		$account->save();
+
+		// Log in with the user.
+		Auth::loginUsingId($account->id);
 
 
 		// Remove the cached image of the captcha, and the session that belongs to it.

@@ -50,7 +50,7 @@ return array(
 	*/
 	'server' => array(
 
-		'name'	 => 'Faloria',
+		'name'	 => 'Ere\'nath',
 		'hash'	 => 'plain',
 
 	),

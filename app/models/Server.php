@@ -10,7 +10,7 @@ class Server
 
 	public static function ip()
 	{
-		return 'faloria.eu';
+		return 'erenath.pandaac.net';
 	}
 
 
