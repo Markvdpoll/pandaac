@@ -4,8 +4,10 @@ interface AccountStandards {}
 
 abstract class Account extends \Eloquent implements AccountStandards
 {
-	protected $table = 'accounts';
-	protected $field = null;
+	protected $table	 = 'accounts';
+	protected $field	 = null;
+
+	public $timestamps	 = false;
 
 
 	/**
@@ -52,7 +54,7 @@ abstract class Account extends \Eloquent implements AccountStandards
 
 
 	/**
-	 * Returns the proper name field.
+	 * Returns the proper name.
 	 *
 	 * @access public
 	 * @return string
@@ -60,5 +62,25 @@ abstract class Account extends \Eloquent implements AccountStandards
 	public function name()
 	{
 		return $this->{$this->field};
+	}
+
+
+	/**
+	 * Returns the proper name field.
+	 *
+	 * @access public
+	 * @return string
+	**/
+	public function field($field)
+	{
+		switch (strtolower($field))
+		{
+			case 'name':
+			case 'account':
+				return $this->field;
+
+			default:
+				return false;
+		}
 	}
 }

@@ -36,6 +36,9 @@ class Image extends \GD\Processor
 			ceil($size / 4),
 		];
 
+		// Store the keyphrase in a session.
+		\Session::put('captcha', $keyphrase);
+
 
 		// Get the overall width and height of the specified string.
 		list($width, $height) = $this->_font->stringLength($keyphrase, $size);
@@ -55,6 +58,6 @@ class Image extends \GD\Processor
 		}
 
 
-		parent::display($image);
+		parent::save($image, $keyphrase);
 	}
 }

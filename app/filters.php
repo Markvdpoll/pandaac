@@ -81,14 +81,14 @@ Route::filter('csrf', function()
 
 /*
 |--------------------------------------------------------------------------
-| Captcha Filter
+| PHP GD Filter
 |--------------------------------------------------------------------------
 |
-| The Captcha Filter makes sure that the PHP GD extension is enabled.
+| The PHP GD Filter makes sure that the PHP GD extension is enabled.
 |
 */
 
-Route::filter('captcha', function()
+Route::filter('phpGD', function()
 {
 	if ( ! GD\Processor::isGDEnabled())
 	{

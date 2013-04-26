@@ -108,22 +108,27 @@ class AccountController extends BaseController
 	**/
 	public function processCreation()
 	{
+		Input::flash();
+
+		$account = SchemaObject::create('Account');
+
 		// Define all the validation rules.
 		$rules = [
-			'account'	 => 'required',
+			'account'	 => 'required|unique:accounts,'.$account->field('name'),
 			'password'	 => 'required',
-			'repeat'	 => 'required',
-			'email'		 => 'required',
+			'repeat'	 => 'required|same:password',
+			'email'		 => 'required|email|unique:accounts,email',
+			'terms'		 => 'accepted',
 		];
 
 		// If captcha is enabled, include it as a rule.
 		if (GD\Processor::isGDEnabled())
 		{
-			$rules['captcha'] = 'required';
+			$rules['captcha'] = ['required', 'regex:/^('.preg_quote(Session::get('captcha'), '/').')$/i'];
 		}
 
 		// Create a validation.
-		$validator = Validator::make(Input::only('account', 'password', 'repeat', 'email', 'captcha'), $rules);
+		$validator = Validator::make(Input::only('account', 'password', 'repeat', 'email', 'captcha', 'terms'), $rules);
 
 
 		// If validation fails, redirect the user to the login form.
@@ -131,5 +136,18 @@ class AccountController extends BaseController
 		{
 			return Redirect::to('account/create')->withErrors($validator);
 		}
+
+		// Create the specified account.
+		$account->{$account->field('name')}	 = Input::get('account');
+		$account->password					 = pandaac::password(Input::get('password'));
+		$account->email						 = Input::get('email');
+		$account->save();
+
+
+		// Remove the cached image of the captcha, and the session that belongs to it.
+		Cache::forget('captcha-'.Session::get('captcha'));
+		Session::forget('captcha');
+
+		return Redirect::to('account');
 	}
 }

@@ -17,7 +17,7 @@
 
 				<p>
 					{{ Form::label('account', Lang::get('pandaac/account.name').':') }}
-					{{ Form::text('account') }}
+					{{ Form::text('account', Input::old('account')) }}
 				</p>
 
 				<p>
@@ -32,18 +32,22 @@
 
 				<p>
 					{{ Form::label('email', Lang::get('pandaac/account.email').':') }}
-					{{ Form::text('email') }}
+					{{ Form::text('email', Input::old('email')) }}
 				</p>
 
 				@if (GD\Processor::isGDEnabled())
 					<p id="captcha-img">
 						<label for="captcha"><img src="{{ URL::to('captcha') }}" alt="Captcha"></label>
-						{{ Form::text('captcha') }}
+						{{ Form::text('captcha', null, ['id' => 'captcha']) }}
+
+						<a href="{{ URL::to('captcha/refresh') }}" title="{{ Lang::get('pandaac/account.registration.captcha') }}" id="refresh-captcha"></a>
 					</p>
 				@endif
 
-				<p class="pushed">
-					{{ Form::checkbox('terms') }} I comply with the <a href="">Terms of Service</a>
+				<p class="pushed" id="terms-box">
+					{{ Form::checkbox('terms', 'on', Input::old('terms', false), ['id' => 'terms']) }} 
+					{{ Form::label('terms', Lang::get('pandaac/account.registration.terms.comply')) }}
+					<a href="{{ URL::to('account/terms') }}">@lang('pandaac/account.registration.terms.terms')</a>
 				</p>
 
 				<p class="pushed">

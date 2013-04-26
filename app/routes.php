@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('test', function()
+{
+
+});
+
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 
@@ -60,15 +65,43 @@ App::missing(function($exception)
 |
 */
 
-Route::get('captcha', ['before' => 'captcha', function()
+Route::get('captcha/{refresh?}', ['before' => 'phpGD', function($refresh = false)
 {
 
-	if ( ! Session::has('captcha'))
+	// If no session has been set for the captcha, generate one.
+	if ($refresh or (! Session::has('captcha') or ! Cache::get('captcha-'.Session::get('captcha'))))
 	{
-		#die;
+		if ($refresh)
+		{
+			// Reset the refresh limit in case 5 minutes have passed.
+			if (Session::get('captcha-refreshes-time') + (5 * 60 * 60) < time())
+			{
+				Session::forget('captcha-refreshes');
+				Session::forget('captcha-refreshes-time');
+			}
+
+			// Redirect back in case the refresh limit has been met.
+			if (Session::get('captcha-refreshes') >= 5)
+			{
+				return Redirect::back();
+			}
+
+			// Delete the captcha image before creating a new one.
+			Cache::forget('captcha-'.Session::get('captcha'));
+			Session::forget('captcha');	
+
+			// Increase the amount of refreshes.
+			Session::put('captcha-refreshes', (int) Session::get('captcha-refreshes') + 1);
+			Session::put('captcha-refreshes-time', time());
+		}
+
+		$captcha = new GD\Captcha\Image(new GD\Font(Theme::path('fonts/Cabaret.ttf')));
+		$captcha->generate();
+
+		return $refresh ? Redirect::back() : Redirect::to('captcha');
 	}
 
-	$captcha = new GD\Captcha\Image(new GD\Font(Theme::path('fonts/Cabaret.ttf')));
-	echo $captcha->generate();
+	// Display the captcha.
+	GD\Processor::display(Cache::get('captcha-'.Session::get('captcha')));
 
 }]);

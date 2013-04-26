@@ -761,7 +761,7 @@ section.case #case-account-online section#table-account-characters table tr td s
 }
 #route-login #form-login#form-registration p#captcha-img,
 #route-account-create #form-registration#form-registration p#captcha-img {
-  padding: 5px 0;
+  padding: 15px 0 5px;
   zoom: 1;
 }
 #route-login #form-login#form-registration p#captcha-img:after,
@@ -782,6 +782,28 @@ section.case #case-account-online section#table-account-characters table tr td s
 #route-account-create #form-registration#form-registration p#captcha-img label img {
   margin-top: 5px;
 }
+#route-login #form-login#form-registration p#captcha-img input[type="text"],
+#route-account-create #form-registration#form-registration p#captcha-img input[type="text"] {
+  float: left;
+}
+#route-login #form-login#form-registration p#captcha-img a#refresh-captcha,
+#route-account-create #form-registration#form-registration p#captcha-img a#refresh-captcha {
+  background: url('../img/refresh.png');
+  margin-top: 2px;
+  display: block;
+  height: 24px;
+  width: 24px;
+  float: left;
+}
+#route-login #form-login#form-registration p#captcha-img a#refresh-captcha:hover,
+#route-account-create #form-registration#form-registration p#captcha-img a#refresh-captcha:hover {
+  background-position: 0 24px;
+}
+#route-login #form-login#form-registration p#terms-box,
+#route-account-create #form-registration#form-registration p#terms-box {
+  margin: 5px 2px 10px !important;
+  display: block;
+}
 #route-login #form-login#form-registration p.pushed,
 #route-account-create #form-registration#form-registration p.pushed {
   padding-left: 115px;
@@ -789,4 +811,9 @@ section.case #case-account-online section#table-account-characters table tr td s
 #route-login #form-login#form-registration p label,
 #route-account-create #form-registration#form-registration p label {
   width: 110px;
+}
+#route-login #form-login#form-registration p label[for="terms"],
+#route-account-create #form-registration#form-registration p label[for="terms"] {
+  display: inline;
+  width: auto;
 }

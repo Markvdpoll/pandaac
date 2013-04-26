@@ -59,9 +59,29 @@ class Processor
 		if (ob_get_length() === 0)
 		{
 			header('Content-Type: image/png');
-			imagepng($image);
-			imagedestroy($image);
+			echo $image;
 			exit;
 		}
+	}
+
+
+	/**
+	 * Save a created image object.
+	 *
+	 * @param  resource $image
+	 * @param  string $name
+	 * @access public
+	 * @static true
+	 * @return void
+	**/
+	public static function save($image, $name)
+	{
+		ob_start();
+		imagepng($image);
+		imagedestroy($image);
+
+		$content = ob_get_clean();
+
+		\Cache::put('captcha-'.$name, $content, 30);
 	}
 }

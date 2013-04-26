@@ -87,6 +87,10 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => array(
+
+		'repeat' => 'repeated password',
+
+	),
 
 );
