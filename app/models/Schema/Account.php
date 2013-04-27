@@ -31,6 +31,18 @@ abstract class Account extends \Eloquent implements AccountStandards, UserInterf
 
 
 	/**
+	 * One to many relationship with players.
+	 *
+	 * @access public
+	 * @return instance
+	**/
+	public function players()
+	{
+		return $this->hasMany('Schema\\'.\Config::get('pandaac::schema').'\Player');
+	}
+
+
+	/**
 	 * Validates the existence of an account.
 	 *
 	 * @param  mixed $name
