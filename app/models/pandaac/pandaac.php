@@ -12,15 +12,9 @@ class pandaac
 	**/
 	public static function debug()
 	{
-		echo '<div style="background: #fff; padding: 20px; color: #666; font-size: 110%; position: absolute; top: 0; left: 0; right: 0; z-index: 9999;">';
-		
-		// Loop through all of the arguments and print them using var_dump.
-		foreach (func_get_args() as $argument)
-		{
-			var_dump($argument);
-		}
-
-		echo '</div>';
+		echo \View::make('debug', [
+			'arguments' => func_get_args(),
+		]);
 	}
 
 
