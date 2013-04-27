@@ -4,8 +4,8 @@
 
 	<h3>Characters</h3>
 	<ul>
-		@foreach ($user->characters()->get() as $character)
-			<li>{{ $character->name }}</li>
+		@foreach ($user->players()->get() as $player)
+			<li>{{ $player->name }}</li>
 		@endforeach
 	</ul>
 

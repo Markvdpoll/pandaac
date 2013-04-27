@@ -3,19 +3,17 @@
 /**
  * Validates the existence of an account.
  *
- *	Validator::make(Input::only('password'), ['password' => 'validate_login_credentials:account']);
+ *	Validator::make(Input::only('password'), ['password' => 'validate_credentials:account,name']);
  *
  * @param  string $accountField
  * @access public
  * @return boolean
 **/
-Validator::extend('validate_login_credentials', function($attribute, $password, $parameters)
+Validator::extend('validate_credentials', function($attribute, $password, $parameters)
 {
-	// Get the account name/number.
-	$name = Input::get($parameters[0]);
+	// Get the account name and its database field.
+	$account = Input::get($parameters[0]);
+	$field   = $parameters[1];
 
-	// Create a schema based object.
-	$account = SchemaObject::create('Account');
-
-	return $account->exists($name, $password) ? true : false;
+	return Auth::validate([$field => $account, 'password' => $password]);
 });

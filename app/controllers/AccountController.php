@@ -79,31 +79,33 @@ class AccountController extends BaseController
 	{
 		Input::flash();
 
-		// Create a validation.
-		$validator = Validator::make(Input::only('account', 'password'), 
-		[
-			'account'	 => 'required',
-			'password'	 => ['required', 'validate_login_credentials:account'],
-		], 
-		[
-			'validate_login_credentials' => Lang::get('pandaac/account.login.fail'),
-		]);
+		// Get the name field.
+		$name = SchemaObject::create('Account')->field('name');
+		// Define the credentials.
+		$credentials = [
+			$name		 => Input::get('account'),
+			'password'	 => Input::get('password'),
+		];
 
+
+		// Create a validator object.
+		$validator = Validator::make(Input::all(), [
+			'account'	 => 'required',
+			'password'	 => 'required|validate_credentials:account,'.$name,
+		]);
 
 		// If validation fails, redirect the user to the login form.
 		if ($validator->fails())
 		{
-			return Redirect::to('account/login')->withErrors($validator);
+			return Redirect::route('login')->withErrors($validator);
 		}
 
 
-		// Create an account object.
-		$object  = SchemaObject::create('Account');
-		$method  = 'where'.ucfirst($object->field('name'));
-
-		// Find and authenticate the user.
-		$account = $object->$method(Input::get('account'))->wherePassword(pandaac::password(Input::get('password')))->first();
-		Auth::loginUsingId($account->id);
+		// Attempt to authenticate the user.
+		if ( ! Auth::attempt($credentials, (boolean) Input::get('remember')))
+		{
+			return Redirect::route('login')->withErrors(Lang::get('validation.account.improper_login'));
+		}
 
 		return Redirect::to('account');
 	}
@@ -149,25 +151,20 @@ class AccountController extends BaseController
 	{
 		Input::flash();
 
-		$account = SchemaObject::create('Account');
-
+		// Get the name field.
+		$name = SchemaObject::create('Account')->field('name');
 		// Define all the validation rules.
 		$rules = [
-			'account'	 => 'required|unique:accounts,'.$account->field('name'),
+			'account'	 => 'required|unique:accounts,'.$name,
 			'password'	 => 'required',
 			'repeat'	 => 'required|same:password',
 			'email'		 => 'required|email|unique:accounts,email',
 			'terms'		 => 'accepted',
+			'captcha'	 => GD\Processor::isGDEnabled() ? ['required', 'regex:/^('.preg_quote(Session::get('captcha'), '/').')$/i']:false;
 		];
 
-		// If captcha is enabled, include it as a rule.
-		if (GD\Processor::isGDEnabled())
-		{
-			$rules['captcha'] = ['required', 'regex:/^('.preg_quote(Session::get('captcha'), '/').')$/i'];
-		}
-
-		// Create a validation.
-		$validator = Validator::make(Input::only('account', 'password', 'repeat', 'email', 'captcha', 'terms'), $rules);
+		// Create a validator object.
+		$validator = Validator::make(Input::all(), $rules);
 
 
 		// If validation fails, redirect the user to the login form.
@@ -177,18 +174,14 @@ class AccountController extends BaseController
 		}
 
 		// Create the specified account.
-		$account->{$account->field('name')}	 = Input::get('account');
-		$account->password					 = pandaac::password(Input::get('password'));
-		$account->email						 = Input::get('email');
-		$account->save();
-
+		$account = $account->register(Input::get('account'), Input::get('password'), Input::get('email'));
 		// Log in with the user.
 		Auth::loginUsingId($account->id);
-
 
 		// Remove the cached image of the captcha, and the session that belongs to it.
 		Cache::forget('captcha-'.Session::get('captcha'));
 		Session::forget('captcha');
+		
 
 		return Redirect::to('account');
 	}

@@ -65,6 +65,19 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
+	| Account Language Lines
+	|--------------------------------------------------------------------------
+	|
+	| ..
+	|
+	*/
+	"validate_credentials"	 => "Wrong account name and password combination.",
+	"account"				 => array(
+		"improper_login" => "Something went wrong, please try again.",
+	),
+
+	/*
+	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines
 	|--------------------------------------------------------------------------
 	|

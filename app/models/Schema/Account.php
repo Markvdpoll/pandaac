@@ -3,7 +3,10 @@
 use \Illuminate\Auth\UserInterface;
 use \Illuminate\Auth\Reminders\RemindableInterface;
 
-interface AccountStandards {}
+interface AccountStandards
+{
+	public function register($account, $password, $email);
+}
 
 abstract class Account extends \Eloquent implements AccountStandards, UserInterface, RemindableInterface
 {
