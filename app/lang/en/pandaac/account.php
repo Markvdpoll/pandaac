@@ -60,6 +60,7 @@ return array(
 		'description'	 => 'We are utterly delighted that you decided to create an account on our servers! All you have to do is fill out the following fields and hit the create button. Oh, and... don\'t forget to read our Terms of Service agreement!',
 		'remember'		 => 'Remember ?',
 		'captcha'		 => 'Refresh Captcha!',
+		'captchaExceeded'=> 'You have exceeded the refresh limit. You must wait 5 minutes before you can refresh again.',
 
 		'terms'			 => array(
 			'comply' => 'I comply with the',

@@ -40,7 +40,11 @@
 						<label for="captcha"><img src="{{ URL::to('captcha') }}" alt="Captcha"></label>
 						{{ Form::text('captcha', null, ['id' => 'captcha']) }}
 
-						<a href="{{ URL::to('captcha/refresh') }}" title="{{ Lang::get('pandaac/account.registration.captcha') }}" id="refresh-captcha"></a>
+						@if (Session::get('captcha-refreshes') >= 5)
+							<a href="{{ URL::to('captcha/refresh') }}" title="{{ Lang::get('pandaac/account.registration.captchaExceeded') }}" id="refresh-captcha"></a>
+						@else
+							<a href="{{ URL::to('captcha/refresh') }}" title="{{ Lang::get('pandaac/account.registration.captcha') }}" id="refresh-captcha"></a>
+						@endif
 					</p>
 				@endif
 
