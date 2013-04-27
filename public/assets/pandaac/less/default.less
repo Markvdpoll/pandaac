@@ -1,12 +1,194 @@
-@wrapper-width: 1081px;
-@font-generic-color: #BDBDBD;
+@import 'elements'; @import 'werewolf';
 
-// Import the elements-less file.
-@import 'elements';
-@import 'werewolf';
+/*
+|--------------------------------------------------------------------------
+| Theme Configuration
+|--------------------------------------------------------------------------
+|
+| This is where you have the ability to change a few fundamental features
+| of the theme. Such as the main colours, font-families and so forth.
+|
+*/
+
+@site-width:				 1081px;
+@site-background-colour:	 #141518;
+@site-font-family:			 Overlock, "Trebuchet MS", Sans-Serif;
+@site-font-size:			 13px;
+
+@site-selection-shadow:		 #000;
+@site-selection-background:	 #80a4d4;
+@site-selection-colour:		 #eee;
+
+@font-colour:	 			 #bdbdbd;
+@font-colour-links:			 #2466A3;
+@font-colour-links-hover:	 #8b8b8b;
+
+@error-border-colour:		 #393939;
+@error-background:			 #1f1f1f;
+@error-colour:				 #ccc;
+@error-shadow:				 #000;
+@error-type-colour:			 #934646;
+
+@status-colour-valid:		 #619221;
+@status-colour-invalid:		 #c22f2f;
+
+@button-colour:				 #eee;
+@button-shadow:				 #000;
+
+@ins-colour-background:		 #333;
+@ins-colour:				 #ddd;
+@mark-colour-background:	 #333;
+@mark-colour:				 #ddd;
+@horizontal-rule-colour:	 #666;
 
 
-// Define a bunch of font faces.
+
+
+
+/*
+|--------------------------------------------------------------------------
+| CSS Reset
+|--------------------------------------------------------------------------
+|
+| Reseting all the elements allows for better crossbrowser support as every
+| browser starts out with the exact same rules, instead of their own rules.
+|
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video
+{
+	vertical-align: baseline;
+	background: transparent;
+	font-size: 100%;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+body
+{
+	line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+{ 
+	display: block;
+}
+
+img
+{
+	border: none;
+}
+
+em, i
+{
+	font-style: italic;
+}
+
+strong, b
+{
+	font-weight: bold;
+}
+
+nav ul
+{
+	list-style: none;
+}
+
+blockquote, q
+{
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after
+{
+	content: '';
+	content: none;
+}
+
+a 
+{
+	vertical-align: baseline;
+	background: transparent;
+	font-size: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+ins
+{
+	background-color: @ins-colour-background;
+	text-decoration: none;
+	color: @ins-colour;
+}
+
+mark
+{
+	background-color: @mark-colour-background;
+	color: @mark-colour; 
+	font-style: italic;
+	font-weight: bold;
+}
+
+del
+{
+	text-decoration: line-through;
+}
+
+abbr[title], dfn[title]
+{
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+hr
+{
+	border-top: 1px solid @horizontal-rule-colour;
+	display: block;
+	margin: 1em 0;
+	height: 1px;
+	padding: 0;
+	border: 0;
+}
+
+input, select
+{
+	vertical-align: middle;
+}
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Font-Faces
+|--------------------------------------------------------------------------
+|
+| Load any custom font faces here.
+|
+*/
+
 @font-face {
 	font-family: "Overlock";
 	src: url('../fonts/overlock/Overlock-Regular-OTF-webfont.eot');
@@ -35,174 +217,153 @@
 		 url('../fonts/overlock/Overlock-Bold-OTF-webfont.woff') format('woff'),
 		 url('../fonts/overlock/Overlock-Bold-OTF-webfont.ttf') format('truetype'),
 		 url('../fonts/overlock/Overlock-Bold-OTF-webfont.svg#OverlockBold') format('svg');
-	font-weight: bold;
 	font-style: normal;
+	font-weight: bold;
 }
 
 
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Global Elements
+|--------------------------------------------------------------------------
+|
+| As we reset the browser specific style rules, we now set our own rules.
+|
+*/
+
 body 
 {
-	font-family: Overlock, "Trebuchet MS", Sans-Serif;
-	color: @font-generic-color;
-	background-color: #141518;
-	font-size: 13px;
+	background-color: @site-background-colour;
+	font-family: @site-font-family;
+	font-size: @site-font-size;
+	color: @font-colour;
 	margin: 0;
 }
 
 .selection() 
 {
-	text-shadow: 0px 1px 0px #000000;
-	background-color: #80a4d4;
-	color: #EEEEEE;
+	text-shadow: 0px 1px 0px @site-selection-shadow;
+	background-color: @site-selection-background;
+	color: @site-selection-colour;
 }
-::-moz-selection 
-{
-	.selection;
-}
-::selection 
-{
-	.selection;
-}
+::-moz-selection { .selection; }
+::selection { .selection; }
 
-
-/* Global Elements */
-article, aside, footer, header, hgroup, nav, section, figure 
-{
-	display: block;
-}
-img 
-{
-	border: none;
-}
-input[type="checkbox"] 
-{
-	cursor: pointer;
-}
-input[type="text"],
-input[type="password"] 
-{
-	background: url('../img/form/input.png');
-	padding: 0px 5px 1px;
-	border: none;
-	height: 21px;
-	width: 135px;
-	margin: 2px;
-}
-input[type="text"].mini,
-input[type="password"].mini 
-{
-	background: url('../img/form/input-mini.png');
-	width: 105px;
-}
-input[type="password"] 
-{
-	padding: 0px 5px 3px;
-	height: 19px;
-}
-label 
-{
-	cursor: pointer;
-}
 a 
 {
+	color: @font-colour-links;
 	text-decoration: none;
-	color: #2466A3;
 	
-	&:hover,
-	&.active 
+	&:hover, &.active
 	{
+		color: @font-colour-links-hover;
 		text-decoration: underline;
-		color: #8b8b8b;
 		outline: none;
 	}
-	&.active 
-	{
-		text-decoration: none;
-	}
 }
+
 ul
 {
 	margin: 5px 5px 5px 30px;
 	list-style-type: disc;
 }
+
 ol
 {
 	margin: 2px 5px 2px 40px;
 	list-style-type: decimal;
 }
-blockquote
-{
-	text-shadow: 0 1px 0 #000;
-	background-color: #152134;
-	border: 1px solid #223452;
-	border-left-width: 5px;
-	margin: 5px 10px;
-	font-size: 110%;
-	color: #6b81a5;
-	padding: 3px;
-}
-em
-{
-	font-style: italic;
-}
-strong
-{
-	font-weight: bold;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
+
+h1, h2, h3, h4, h5, h6
 {
 	font-weight: bold;
 	margin: 10px;
 }
 
+form
+{
+	input
+	{
+		&[type=checkbox]
+		{
+			cursor: pointer;
+		}
+		&[type=text], &[type=password]
+		{
+			background: url('../img/form/input.png');
+			padding: 0px 5px 1px;
+			border: none;
+			height: 21px;
+			width: 135px;
+			margin: 2px;
 
-/* Global Classes */
-.online 
-{
-	color: #619221;
+			&[type=password]
+			{
+				padding: 0px 5px 3px;
+				height: 19px;
+			}
+			&.small
+			{
+				background: url('../img/form/input-mini.png');
+				width: 105px;
+			}
+		}
+	}
+
+	label
+	{
+		cursor: pointer;
+	}
 }
-.blocked, 
-.offline 
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Global Classes
+|--------------------------------------------------------------------------
+|
+| Any class that should be applicable to ANY element should be defined here.
+|
+*/
+
+.online, .valid, .proper, .green, .available
 {
-	color: #c22f2f;
+	color: @status-colour-valid;
 }
-.button 
+
+.offline, .invalid, .improper, .red, .blocked, .unavailable
+{
+	color: @status-colour-invalid;
+}
+
+.button
 {
 	background: url('../img/form/button.png');
-	text-shadow: 0px 1px 0px #000000;
-	text-transform: uppercase;
+	text-shadow: 0px 1px 0px @button-shadow;
+	color: @button-colour;
+	letter-spacing: 1px;
 	cursor: pointer;
-	color: #FFFFFF;
 	border: none;
 	height: 28px;
 	width: 117px;
 	padding: 0px;
 	margin: 2px;
-	
-	&.login 
-	{
-		background: url('../img/form/buttons/login.png');
-	}
-	&.create 
-	{
-		background: url('../img/form/buttons/create.png');
-	}
 }
-p.error,
-p.errors,
-ul.error,
-ul.errors 
+
+.error, .errors
 {
-	border-bottom: 1px solid #393939;
-	border-top: 1px solid #393939;
-	text-shadow: 0px 1px 0px #000;
-	background-color: #1f1f1f;
+	border-bottom: 1px solid @error-border-colour;
+	border-top: 1px solid @error-border-colour;
+	text-shadow: 0px 1px 0px @error-shadow;
+	background-color: @error-background;
 	margin: 20px 10px 10px;
+	color: @error-colour;
 	line-height: 18px;
 	padding: 5px 10px;
 	list-style: none;
@@ -216,93 +377,83 @@ ul.errors
 		
 		&:before 
 		{
+			color: @error-type-colour;
 			content: "ERROR: ";
 			margin-right: 3px;
 			font-weight: bold;
-			color: #934646;
 		}
 	}
 }
-p.error,
-p.errors 
-{
-	&:before 
-	{
-		content: "ERROR: ";
-		font-weight: bold;
-		color: #934646;
-	}
-}
-.button.search 
-{
-	vertical-align: middle;
-}
-section.table 
-{
-	@table-bgcolor: darken(#202020, 5%);
-	margin: 10px;
 
-	table 
-	{
-		border-bottom: 1px solid #000;
-		border-collapse: collapse;
-		border-spacing: 10px;
-		color: #a6a6a6;
-		width: 100%;
-
-		tr 
-		{
-			th 
-			{
-				padding: 4px 15px;
-				text-align: left;
-			}
-			td 
-			{
-				background-color: @table-bgcolor;
-				border-right: 1px solid #000;
-				border-top: 1px solid #000;
-				padding: 12px 15px;
-
-				&:first-child 
-				{
-					background-image: none;
-				}
-			}
-			&:nth-child(odd) 
-			{
-				td 
-				{
-					background-color: darken(@table-bgcolor, 2%);
-				}
-			}
-		}
-	}
-}
-.refresh 
-{
-	background: url('../img/refresh.png') 0px 0px no-repeat;
-	vertical-align: middle;
-	display: inline-block;
-	margin-top: -1px;
-	height: 24px;
-	width: 24px;
-
-	&:hover 
-	{
-		background-position: 0px -24px;
-	}
-}
-.centered 
+.center, .middle, .centered
 {
 	text-align: center;
 }
+
+.columns
+{
+	overflow: hidden;
+	.clearfix;
+
+	.column
+	{
+		float: left;
+		width: 50%;
+	}
+	&.l10-r90 { .column:first-child { width: 10%; } .column { width: 90%; } }
+	&.l15-r85 { .column:first-child { width: 15%; } .column { width: 85%; } }
+	&.l20-r80 { .column:first-child { width: 20%; } .column { width: 80%; } }
+	&.l25-r75 { .column:first-child { width: 25%; } .column { width: 75%; } }
+	&.l30-r70 { .column:first-child { width: 30%; } .column { width: 70%; } }
+	&.l35-r65 { .column:first-child { width: 35%; } .column { width: 65%; } }
+	&.l40-r60 { .column:first-child { width: 40%; } .column { width: 60%; } }
+	&.l45-r55 { .column:first-child { width: 45%; } .column { width: 55%; } }
+	&.l50-r50 { .column:first-child { width: 50%; } .column { width: 50%; } }
+	&.l55-r45 { .column:first-child { width: 55%; } .column { width: 45%; } }
+	&.l60-r40 { .column:first-child { width: 60%; } .column { width: 40%; } }
+	&.l65-r35 { .column:first-child { width: 65%; } .column { width: 35%; } }
+	&.l70-r30 { .column:first-child { width: 70%; } .column { width: 30%; } }
+	&.l75-r25 { .column:first-child { width: 75%; } .column { width: 25%; } }
+	&.l80-r20 { .column:first-child { width: 80%; } .column { width: 20%; } }
+	&.l85-r15 { .column:first-child { width: 85%; } .column { width: 15%; } }
+	&.l90-r10 { .column:first-child { width: 90%; } .column { width: 10%; } }
+}
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Site Structure
+|--------------------------------------------------------------------------
+|
+| This is where we actually handle the site structure and the way it 
+| appears. But only the core appearance, and not the route-specific ones.
+|
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Site Wrapper */
 section#skeleton 
 {
-	width: @wrapper-width;
+	width: @site-width;
 	margin: 0 auto;
 
 	header 
@@ -449,7 +600,7 @@ section#skeleton
 
 		section.panel 
 		{
-			width: @wrapper-width - (230 * 2) - 19;
+			width: @site-width - (230 * 2) - 19;
 			float: left;
 
 			section.case 
@@ -749,34 +900,7 @@ section.case
 
 
 
-.columns
-{
-	overflow: hidden;
-	.clearfix;
 
-	.column
-	{
-		float: left;
-		width: 50%;
-	}
-	&.l10-r90 { .column:first-child { width: 10%; } .column { width: 90%; } }
-	&.l15-r85 { .column:first-child { width: 15%; } .column { width: 85%; } }
-	&.l20-r80 { .column:first-child { width: 20%; } .column { width: 80%; } }
-	&.l25-r75 { .column:first-child { width: 25%; } .column { width: 75%; } }
-	&.l30-r70 { .column:first-child { width: 30%; } .column { width: 70%; } }
-	&.l35-r65 { .column:first-child { width: 35%; } .column { width: 65%; } }
-	&.l40-r60 { .column:first-child { width: 40%; } .column { width: 60%; } }
-	&.l45-r55 { .column:first-child { width: 45%; } .column { width: 55%; } }
-	&.l50-r50 { .column:first-child { width: 50%; } .column { width: 50%; } }
-	&.l55-r45 { .column:first-child { width: 55%; } .column { width: 45%; } }
-	&.l60-r40 { .column:first-child { width: 60%; } .column { width: 40%; } }
-	&.l65-r35 { .column:first-child { width: 65%; } .column { width: 35%; } }
-	&.l70-r30 { .column:first-child { width: 70%; } .column { width: 30%; } }
-	&.l75-r25 { .column:first-child { width: 75%; } .column { width: 25%; } }
-	&.l80-r20 { .column:first-child { width: 80%; } .column { width: 20%; } }
-	&.l85-r15 { .column:first-child { width: 85%; } .column { width: 15%; } }
-	&.l90-r10 { .column:first-child { width: 90%; } .column { width: 10%; } }
-}
 
 
 
@@ -881,5 +1005,19 @@ section.case
 				}
 			}
 		}
+	}
+}
+.refresh 
+{
+	background: url('../img/refresh.png') 0px 0px no-repeat;
+	vertical-align: middle;
+	display: inline-block;
+	margin-top: -1px;
+	height: 24px;
+	width: 24px;
+
+	&:hover 
+	{
+		background-position: 0px -24px;
 	}
 }

@@ -129,13 +129,13 @@
 										<td style="padding: 0 3px; width: 35%;">
 											{{ Form::label('name', 'Account:') }}
 										</td>
-										<td>{{ Form::text('account', '', array('class' => 'mini')) }}</td>
+										<td>{{ Form::text('account', '', array('class' => 'small')) }}</td>
 									</tr>
 									<tr>
 										<td style="padding: 0 3px; width: 35%;">
 											{{ Form::label('password', 'Password:') }}
 										</td>
-										<td>{{ Form::text('password', '', array('class' => 'mini')) }}</td>
+										<td>{{ Form::text('password', '', array('class' => 'small')) }}</td>
 									</tr>
 									<tr>
 										<td colspan="2" style="padding-top: 10px;">

@@ -39,6 +39,192 @@ body.werewolf section#skeleton header {
 body.werewolf section#skeleton section#wrapper section#navigation {
   background-image: url('../img/_werewolf/navigation/background.png');
 }
+/*
+|--------------------------------------------------------------------------
+| Theme Configuration
+|--------------------------------------------------------------------------
+|
+| This is where you have the ability to change a few fundamental features
+| of the theme. Such as the main colours, font-families and so forth.
+|
+*/
+/*
+|--------------------------------------------------------------------------
+| CSS Reset
+|--------------------------------------------------------------------------
+|
+| Reseting all the elements allows for better crossbrowser support as every
+| browser starts out with the exact same rules, instead of their own rules.
+|
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  vertical-align: baseline;
+  background: transparent;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+body {
+  line-height: 1;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+img {
+  border: none;
+}
+em,
+i {
+  font-style: italic;
+}
+strong,
+b {
+  font-weight: bold;
+}
+nav ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+a {
+  vertical-align: baseline;
+  background: transparent;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+}
+ins {
+  background-color: #333333;
+  text-decoration: none;
+  color: #dddddd;
+}
+mark {
+  background-color: #333333;
+  color: #dddddd;
+  font-style: italic;
+  font-weight: bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+hr {
+  border-top: 1px solid #666666;
+  display: block;
+  margin: 1em 0;
+  height: 1px;
+  padding: 0;
+  border: 0;
+}
+input,
+select {
+  vertical-align: middle;
+}
+/*
+|--------------------------------------------------------------------------
+| Font-Faces
+|--------------------------------------------------------------------------
+|
+| Load any custom font faces here.
+|
+*/
 @font-face {
   font-family: "Overlock";
   src: url('../fonts/overlock/Overlock-Regular-OTF-webfont.eot');
@@ -58,76 +244,43 @@ body.werewolf section#skeleton section#wrapper section#navigation {
   font-family: "Overlock";
   src: url('../fonts/overlock/Overlock-Bold-OTF-webfont.eot');
   src: url('../fonts/overlock/Overlock-Bold-OTF-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/overlock/Overlock-Bold-OTF-webfont.woff') format('woff'), url('../fonts/overlock/Overlock-Bold-OTF-webfont.ttf') format('truetype'), url('../fonts/overlock/Overlock-Bold-OTF-webfont.svg#OverlockBold') format('svg');
-  font-weight: bold;
   font-style: normal;
+  font-weight: bold;
 }
+/*
+|--------------------------------------------------------------------------
+| Global Elements
+|--------------------------------------------------------------------------
+|
+| As we reset the browser specific style rules, we now set our own rules.
+|
+*/
 body {
-  font-family: Overlock, "Trebuchet MS", Sans-Serif;
-  color: #bdbdbd;
   background-color: #141518;
+  font-family: Overlock, "Trebuchet MS", Sans-Serif;
   font-size: 13px;
+  color: #bdbdbd;
   margin: 0;
 }
 ::-moz-selection {
   text-shadow: 0px 1px 0px #000000;
   background-color: #80a4d4;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
 ::selection {
   text-shadow: 0px 1px 0px #000000;
   background-color: #80a4d4;
-  color: #EEEEEE;
-}
-/* Global Elements */
-article,
-aside,
-footer,
-header,
-hgroup,
-nav,
-section,
-figure {
-  display: block;
-}
-img {
-  border: none;
-}
-input[type="checkbox"] {
-  cursor: pointer;
-}
-input[type="text"],
-input[type="password"] {
-  background: url('../img/form/input.png');
-  padding: 0px 5px 1px;
-  border: none;
-  height: 21px;
-  width: 135px;
-  margin: 2px;
-}
-input[type="text"].mini,
-input[type="password"].mini {
-  background: url('../img/form/input-mini.png');
-  width: 105px;
-}
-input[type="password"] {
-  padding: 0px 5px 3px;
-  height: 19px;
-}
-label {
-  cursor: pointer;
+  color: #eeeeee;
 }
 a {
+  color: #2466a3;
   text-decoration: none;
-  color: #2466A3;
 }
 a:hover,
 a.active {
-  text-decoration: underline;
   color: #8b8b8b;
+  text-decoration: underline;
   outline: none;
-}
-a.active {
-  text-decoration: none;
 }
 ul {
   margin: 5px 5px 5px 30px;
@@ -136,22 +289,6 @@ ul {
 ol {
   margin: 2px 5px 2px 40px;
   list-style-type: decimal;
-}
-blockquote {
-  text-shadow: 0 1px 0 #000;
-  background-color: #152134;
-  border: 1px solid #223452;
-  border-left-width: 5px;
-  margin: 5px 10px;
-  font-size: 110%;
-  color: #6b81a5;
-  padding: 3px;
-}
-em {
-  font-style: italic;
-}
-strong {
-  font-weight: bold;
 }
 h1,
 h2,
@@ -162,41 +299,74 @@ h6 {
   font-weight: bold;
   margin: 10px;
 }
-/* Global Classes */
-.online {
+form input[type=checkbox] {
+  cursor: pointer;
+}
+form input[type=text],
+form input[type=password] {
+  background: url('../img/form/input.png');
+  padding: 0px 5px 1px;
+  border: none;
+  height: 21px;
+  width: 135px;
+  margin: 2px;
+}
+form input[type=text][type=password],
+form input[type=password][type=password] {
+  padding: 0px 5px 3px;
+  height: 19px;
+}
+form input[type=text].small,
+form input[type=password].small {
+  background: url('../img/form/input-mini.png');
+  width: 105px;
+}
+form label {
+  cursor: pointer;
+}
+/*
+|--------------------------------------------------------------------------
+| Global Classes
+|--------------------------------------------------------------------------
+|
+| Any class that should be applicable to ANY element should be defined here.
+|
+*/
+.online,
+.valid,
+.proper,
+.green,
+.available {
   color: #619221;
 }
+.offline,
+.invalid,
+.improper,
+.red,
 .blocked,
-.offline {
+.unavailable {
   color: #c22f2f;
 }
 .button {
   background: url('../img/form/button.png');
   text-shadow: 0px 1px 0px #000000;
-  text-transform: uppercase;
+  color: #eeeeee;
+  letter-spacing: 1px;
   cursor: pointer;
-  color: #FFFFFF;
   border: none;
   height: 28px;
   width: 117px;
   padding: 0px;
   margin: 2px;
 }
-.button.login {
-  background: url('../img/form/buttons/login.png');
-}
-.button.create {
-  background: url('../img/form/buttons/create.png');
-}
-p.error,
-p.errors,
-ul.error,
-ul.errors {
+.error,
+.errors {
   border-bottom: 1px solid #393939;
   border-top: 1px solid #393939;
-  text-shadow: 0px 1px 0px #000;
+  text-shadow: 0px 1px 0px #000000;
   background-color: #1f1f1f;
   margin: 20px 10px 10px;
+  color: #cccccc;
   line-height: 18px;
   padding: 5px 10px;
   list-style: none;
@@ -207,71 +377,149 @@ ul.errors {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-p.error li,
-p.errors li,
-ul.error li,
-ul.errors li {
+.error li,
+.errors li {
   padding: 0px;
   margin: 0px;
 }
-p.error li:before,
-p.errors li:before,
-ul.error li:before,
-ul.errors li:before {
+.error li:before,
+.errors li:before {
+  color: #934646;
   content: "ERROR: ";
   margin-right: 3px;
   font-weight: bold;
-  color: #934646;
 }
-p.error:before,
-p.errors:before {
-  content: "ERROR: ";
-  font-weight: bold;
-  color: #934646;
-}
-.button.search {
-  vertical-align: middle;
-}
-section.table {
-  margin: 10px;
-}
-section.table table {
-  border-bottom: 1px solid #000;
-  border-collapse: collapse;
-  border-spacing: 10px;
-  color: #a6a6a6;
-  width: 100%;
-}
-section.table table tr th {
-  padding: 4px 15px;
-  text-align: left;
-}
-section.table table tr td {
-  background-color: #131313;
-  border-right: 1px solid #000;
-  border-top: 1px solid #000;
-  padding: 12px 15px;
-}
-section.table table tr td:first-child {
-  background-image: none;
-}
-section.table table tr:nth-child(odd) td {
-  background-color: #0e0e0e;
-}
-.refresh {
-  background: url('../img/refresh.png') 0px 0px no-repeat;
-  vertical-align: middle;
-  display: inline-block;
-  margin-top: -1px;
-  height: 24px;
-  width: 24px;
-}
-.refresh:hover {
-  background-position: 0px -24px;
-}
+.center,
+.middle,
 .centered {
   text-align: center;
 }
+.columns {
+  overflow: hidden;
+  zoom: 1;
+}
+.columns:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+.columns .column {
+  float: left;
+  width: 50%;
+}
+.columns.l10-r90 .column:first-child {
+  width: 10%;
+}
+.columns.l10-r90 .column {
+  width: 90%;
+}
+.columns.l15-r85 .column:first-child {
+  width: 15%;
+}
+.columns.l15-r85 .column {
+  width: 85%;
+}
+.columns.l20-r80 .column:first-child {
+  width: 20%;
+}
+.columns.l20-r80 .column {
+  width: 80%;
+}
+.columns.l25-r75 .column:first-child {
+  width: 25%;
+}
+.columns.l25-r75 .column {
+  width: 75%;
+}
+.columns.l30-r70 .column:first-child {
+  width: 30%;
+}
+.columns.l30-r70 .column {
+  width: 70%;
+}
+.columns.l35-r65 .column:first-child {
+  width: 35%;
+}
+.columns.l35-r65 .column {
+  width: 65%;
+}
+.columns.l40-r60 .column:first-child {
+  width: 40%;
+}
+.columns.l40-r60 .column {
+  width: 60%;
+}
+.columns.l45-r55 .column:first-child {
+  width: 45%;
+}
+.columns.l45-r55 .column {
+  width: 55%;
+}
+.columns.l50-r50 .column:first-child {
+  width: 50%;
+}
+.columns.l50-r50 .column {
+  width: 50%;
+}
+.columns.l55-r45 .column:first-child {
+  width: 55%;
+}
+.columns.l55-r45 .column {
+  width: 45%;
+}
+.columns.l60-r40 .column:first-child {
+  width: 60%;
+}
+.columns.l60-r40 .column {
+  width: 40%;
+}
+.columns.l65-r35 .column:first-child {
+  width: 65%;
+}
+.columns.l65-r35 .column {
+  width: 35%;
+}
+.columns.l70-r30 .column:first-child {
+  width: 70%;
+}
+.columns.l70-r30 .column {
+  width: 30%;
+}
+.columns.l75-r25 .column:first-child {
+  width: 75%;
+}
+.columns.l75-r25 .column {
+  width: 25%;
+}
+.columns.l80-r20 .column:first-child {
+  width: 80%;
+}
+.columns.l80-r20 .column {
+  width: 20%;
+}
+.columns.l85-r15 .column:first-child {
+  width: 85%;
+}
+.columns.l85-r15 .column {
+  width: 15%;
+}
+.columns.l90-r10 .column:first-child {
+  width: 90%;
+}
+.columns.l90-r10 .column {
+  width: 10%;
+}
+/*
+|--------------------------------------------------------------------------
+| Site Structure
+|--------------------------------------------------------------------------
+|
+| This is where we actually handle the site structure and the way it 
+| appears. But only the core appearance, and not the route-specific ones.
+|
+*/
 /* Site Wrapper */
 section#skeleton {
   width: 1081px;
@@ -611,123 +859,6 @@ section.case #case-account-online section#table-account-characters table tr td s
   display: block;
   color: #646464;
 }
-.columns {
-  overflow: hidden;
-  zoom: 1;
-}
-.columns:after {
-  display: block;
-  visibility: hidden;
-  height: 0;
-  clear: both;
-  content: ".";
-}
-.columns .column {
-  float: left;
-  width: 50%;
-}
-.columns.l10-r90 .column:first-child {
-  width: 10%;
-}
-.columns.l10-r90 .column {
-  width: 90%;
-}
-.columns.l15-r85 .column:first-child {
-  width: 15%;
-}
-.columns.l15-r85 .column {
-  width: 85%;
-}
-.columns.l20-r80 .column:first-child {
-  width: 20%;
-}
-.columns.l20-r80 .column {
-  width: 80%;
-}
-.columns.l25-r75 .column:first-child {
-  width: 25%;
-}
-.columns.l25-r75 .column {
-  width: 75%;
-}
-.columns.l30-r70 .column:first-child {
-  width: 30%;
-}
-.columns.l30-r70 .column {
-  width: 70%;
-}
-.columns.l35-r65 .column:first-child {
-  width: 35%;
-}
-.columns.l35-r65 .column {
-  width: 65%;
-}
-.columns.l40-r60 .column:first-child {
-  width: 40%;
-}
-.columns.l40-r60 .column {
-  width: 60%;
-}
-.columns.l45-r55 .column:first-child {
-  width: 45%;
-}
-.columns.l45-r55 .column {
-  width: 55%;
-}
-.columns.l50-r50 .column:first-child {
-  width: 50%;
-}
-.columns.l50-r50 .column {
-  width: 50%;
-}
-.columns.l55-r45 .column:first-child {
-  width: 55%;
-}
-.columns.l55-r45 .column {
-  width: 45%;
-}
-.columns.l60-r40 .column:first-child {
-  width: 60%;
-}
-.columns.l60-r40 .column {
-  width: 40%;
-}
-.columns.l65-r35 .column:first-child {
-  width: 65%;
-}
-.columns.l65-r35 .column {
-  width: 35%;
-}
-.columns.l70-r30 .column:first-child {
-  width: 70%;
-}
-.columns.l70-r30 .column {
-  width: 30%;
-}
-.columns.l75-r25 .column:first-child {
-  width: 75%;
-}
-.columns.l75-r25 .column {
-  width: 25%;
-}
-.columns.l80-r20 .column:first-child {
-  width: 80%;
-}
-.columns.l80-r20 .column {
-  width: 20%;
-}
-.columns.l85-r15 .column:first-child {
-  width: 85%;
-}
-.columns.l85-r15 .column {
-  width: 15%;
-}
-.columns.l90-r10 .column:first-child {
-  width: 90%;
-}
-.columns.l90-r10 .column {
-  width: 10%;
-}
 #route-login #form-login,
 #route-account-create #form-registration {
   margin: 15px 0 10px;
@@ -817,4 +948,15 @@ section.case #case-account-online section#table-account-characters table tr td s
 #route-account-create #form-registration#form-registration p label[for="terms"] {
   display: inline;
   width: auto;
+}
+.refresh {
+  background: url('../img/refresh.png') 0px 0px no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -1px;
+  height: 24px;
+  width: 24px;
+}
+.refresh:hover {
+  background-position: 0px -24px;
 }
