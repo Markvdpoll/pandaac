@@ -160,7 +160,7 @@ class AccountController extends BaseController
 			'repeat'	 => 'required|same:password',
 			'email'		 => 'required|email|unique:accounts,email',
 			'terms'		 => 'accepted',
-			'captcha'	 => GD\Processor::isGDEnabled() ? ['required', 'regex:/^('.preg_quote(Session::get('captcha'), '/').')$/i']:false;
+			'captcha'	 => GD\Processor::isGDEnabled() ? ['required', 'regex:/^('.preg_quote(Session::get('captcha'), '/').')$/i'] : false
 		];
 
 		// Create a validator object.
@@ -181,7 +181,7 @@ class AccountController extends BaseController
 		// Remove the cached image of the captcha, and the session that belongs to it.
 		Cache::forget('captcha-'.Session::get('captcha'));
 		Session::forget('captcha');
-		
+
 
 		return Redirect::to('account');
 	}

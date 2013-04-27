@@ -1,4 +1,4 @@
-<?php
+<?php namespace pandaac;
 
 class pandaac
 {
@@ -35,7 +35,7 @@ class pandaac
 	public static function password($password)
 	{
 		// Get the user-specified hashing method.
-		$hash = Config::get('pandaac::server.hash');
+		$hash = \Config::get('pandaac::server.hash');
 
 		switch (strtolower($hash))
 		{

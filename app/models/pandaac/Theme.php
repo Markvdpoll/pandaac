@@ -1,4 +1,4 @@
-<?php
+<?php namespace pandaac;
 
 class Theme
 {
@@ -11,7 +11,7 @@ class Theme
 	**/
 	public static function name()
 	{
-		return Config::get('pandaac::theme.name');
+		return \Config::get('pandaac::theme.name');
 	}
 
 
@@ -27,14 +27,14 @@ class Theme
 		// Try to get the title & group title.
 		try
 		{
-			$title      = App::make('themeTitle');
-			$groupTitle = App::make('themeGroupTitle');
+			$title      = \App::make('themeTitle');
+			$groupTitle = \App::make('themeGroupTitle');
 		}
-		catch (Exception $e) { }
+		catch (\Exception $e) { }
 
 
 		// Get the server name.
-		$serverName = Server::name();
+		$serverName = \Server::name();
 
 		// If both title & group title are set.
 		if ( ! empty($title) and ! empty($groupTitle))
@@ -71,7 +71,7 @@ class Theme
 		$output = null;
 
 		// Get the current route action.
-		$currentRoute = Route::currentRouteAction();
+		$currentRoute = \Route::currentRouteAction();
 		$routePieces  = explode('@', $currentRoute);
 
 		// Get the controller and the method.
@@ -79,13 +79,13 @@ class Theme
 		$method     = isset($routePieces[1]) ? $routePieces[1] : '404';
 
 		// Get the title path.
-		$titlePath = str_replace(':theme', static::name(), Config::get('pandaac::theme.titlePath'));
+		$titlePath = str_replace(':theme', static::name(), \Config::get('pandaac::theme.titlePath'));
 
 
 		// Format the controller.
 		$controller = strtolower(preg_replace('/Controller$/i', null, $controller));
 		// Check if the controller exists as an image.
-		if ( ! empty($controller) and File::exists($titlePath.$controller.'/index.png'))
+		if ( ! empty($controller) and \File::exists($titlePath.$controller.'/index.png'))
 		{
 			$output .= '<li><img src="'.static::asset($titlePath.$controller.'/index.png', true).'" alt="'.$controller.'"></li>';
 		}
@@ -94,7 +94,7 @@ class Theme
 		// Format the method.
 		$method = strtolower($method);
 		// Check if the method exists as an image.
-		if ($method != 'index' and File::exists($titlePath.$controller.'/'.$method.'.png'))
+		if ($method != 'index' and \File::exists($titlePath.$controller.'/'.$method.'.png'))
 		{
 			// Add a separator in case a controller was specified.
 			if ( ! empty($controller))
@@ -127,7 +127,7 @@ class Theme
 	public static function routeAsClass()
 	{
 		// Get the current route.
-		$route = str_replace('/', '-', strtolower(Route::currentRouteName()));
+		$route = str_replace('/', '-', strtolower(\Route::currentRouteName()));
 
 		// Remove any HTTP type.
 		$route = preg_replace('/(get|post|put|delete) /', null, $route);
@@ -147,7 +147,7 @@ class Theme
 	**/
 	public static function asset($path, $absolute = false)
 	{
-		return URL::to(( ! $absolute ? 'assets/'.static::name().'/' : null).$path);
+		return \URL::to(( ! $absolute ? 'assets/'.static::name().'/' : null).$path);
 	}
 
 
@@ -180,7 +180,7 @@ class Theme
 		// Fetch a language line, if one was requested.
 		if (substr(strtolower($alt), 0, 6) == 'lang::')
 		{
-			$alt = Lang::get(preg_replace('/^lang::/i', null, $alt));
+			$alt = \Lang::get(preg_replace('/^lang::/i', null, $alt));
 		}
 
 		return '<img src="'.static::asset('img/'.$path).'" alt="'.$alt.'">';
