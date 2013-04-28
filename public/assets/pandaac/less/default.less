@@ -433,24 +433,6 @@ form
 |
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Site Wrapper */
 section#skeleton 
 {
 	width: @site-width;
@@ -515,6 +497,11 @@ section#skeleton
 							height: 38px;
 							margin: 0px;
 
+							&.nav-item
+							{
+								margin: 13px 14px;
+								height: 14px;
+							}
 							&:hover,
 							&.current 
 							{
@@ -526,62 +513,62 @@ section#skeleton
 								margin: 13px 14px;
 								height: 14px;
 
-								&.nav-button-home 
+								&#nav-button-home 
 								{
 									background-position: 0px -14px;
 									width: 43px;
 								}
-								&.nav-button-account 
+								&#nav-button-account 
 								{
 									background-position: 0px -14*2px;
 									width: 73px;
 								}
-								&.nav-button-logout 
+								&#nav-button-logout 
 								{
 									background-position: 0px -14*3px;
 									width: 51px;
 								}
-								&.nav-button-create 
+								&#nav-button-create 
 								{
 									background-position: 0px -14*4px;
 									width: 66px;
 								}
-								&.nav-button-houses 
+								&#nav-button-houses 
 								{
 									background-position: 0px -14*5px;
 									width: 57px;
 								}
-								&.nav-button-highscores 
+								&#nav-button-highscores 
 								{
 									background-position: 0px -14*6px;
 									width: 90px;
 								}
-								&.nav-button-rules 
+								&#nav-button-rules 
 								{
 									background-position: 0px -14*7px;
 									width: 44px;
 								}
-								&.nav-button-guilds 
+								&#nav-button-guilds 
 								{
 									background-position: 0px -14*8px;
 									width: 50px;
 								}
-								&.nav-button-forum 
+								&#nav-button-forum 
 								{
 									background-position: 0px -14*9px;
 									width: 51px;
 								}
-								&.nav-button-downloads 
+								&#nav-button-downloads 
 								{
 									background-position: 0px -14*10px;
 									width: 95px;
 								}
-								&.nav-button-donate 
+								&#nav-button-donate 
 								{
 									background-position: 0px -14*11px;
 									width: 61px;
 								}
-								&.nav-button-info 
+								&#nav-button-info 
 								{
 									background-position: 0px -14*12px;
 									width: 93px;
@@ -754,177 +741,35 @@ section#skeleton
 
 
 
-section.case 
+/*
+|--------------------------------------------------------------------------
+| Route Specific Styling
+|--------------------------------------------------------------------------
+|
+| This is where you add route specific stylings.
+|
+*/
+
+section#route-login,
+section#route-account-create
 {
-	table.case-table 
-	{
-		padding: 10px;
-		width: 100%;
-	}
+	@label-width: 110px;
+	margin: 10px 0;
 
-	/* Account Login & Account Create */
-	#case-account-index,
-	#case-account-create 
-	{
-		table.case-table 
-		{
-			&.account-table 
-			{
-				tbody 
-				{
-					tr 
-					{
-						th 
-						{
-							vertical-align: middle;
-							padding-right: 3px;
-							text-align: right;
-							font-weight: bold;
-							width: 120px;
-							
-							&#account-create-captcha 
-							{
-								img 
-								{
-									vertical-align: middle;
-									margin-top: 4px;
-								}
-							}
-						}
-						td 
-						{
-							vertical-align: middle;
-							height: 28px;
-						}
-					}
-				}
-			}
-			tbody 
-			{
-				tr 
-				{
-					&.large-space 
-					{
-						th,
-						td 
-						{
-							padding-top: 14px;
-						}
-					}
-					&.small-space 
-					{
-						th,
-						td 
-						{
-							padding-top: 7px;
-						}
-					}
-					td 
-					{
-						vertical-align: top;
-
-						h3 
-						{
-							font-weight: bold;
-							margin: 0px 10px;
-							font-size: 12px;
-							padding: 0px;
-						}
-						&.account-helpful 
-						{
-							vertical-align: top;
-							width: 50%;
-
-							ul 
-							{
-								padding: 5px 0px 0px 20px;
-								margin: 0px 20px;
-
-								li 
-								{
-									margin: 0px;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	/* Account Index (as online) */
-	#case-account-online 
-	{
-		section#table-account-characters 
-		{
-			table 
-			{
-				tr 
-				{
-					td 
-					{
-						&:first-child,
-						&:nth-child(1) 
-						{
-							text-align: center;
-							width: 8%;
-						}
-						&:nth-child(2) 
-						{
-							width: 40%;
-						}
-						&:last-child
-						&:nth-child(5) 
-						{
-							padding-right: 10px;
-							text-align: right;
-							font-size: 11px;
-							width: 20%;
-						}
-						span.character-info 
-						{
-							font-size: 11px;
-							display: block;
-							color: #646464;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-#route-login #form-login,
-#route-account-create #form-registration
-{
-	@width: 110px;
-	margin: 15px 0 10px;
-
-	p
+	form p
 	{
 		margin: 2px !important;
 
 		label
 		{
 			display: inline-block;
+			width: @label-width;
 			padding-right: 3px;
 			text-align: right;
-			width: @width;
 		}
 		&.inline
 		{
-			width: @width + 3px;
+			width: @label-width + 3px;
 			text-align: right;
 			padding-top: 5px;
 			display: block;
@@ -937,15 +782,7 @@ section.case
 			}
 		}
 	}
-	ul
-	{
-		li
-		{
-			margin: 3px 0;
-		}
-	}
-
-	&#form-registration
+	#form-registration
 	{
 		p
 		{
@@ -957,7 +794,7 @@ section.case
 
 				label
 				{
-					width: @width + 3px;
+					width: @label-width + 3px;
 					display: block;
 					float: left;
 
@@ -992,11 +829,11 @@ section.case
 			}
 			&.pushed
 			{
-				padding-left: @width + 5px;
+				padding-left: @label-width + 5px;
 			}
 			label
 			{
-				width: @width;
+				width: @label-width;
 
 				&[for="terms"]
 				{
@@ -1005,19 +842,5 @@ section.case
 				}
 			}
 		}
-	}
-}
-.refresh 
-{
-	background: url('../img/refresh.png') 0px 0px no-repeat;
-	vertical-align: middle;
-	display: inline-block;
-	margin-top: -1px;
-	height: 24px;
-	width: 24px;
-
-	&:hover 
-	{
-		background-position: 0px -24px;
 	}
 }

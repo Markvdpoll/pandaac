@@ -520,7 +520,6 @@ form label {
 | appears. But only the core appearance, and not the route-specific ones.
 |
 */
-/* Site Wrapper */
 section#skeleton {
   width: 1081px;
   margin: 0 auto;
@@ -578,6 +577,10 @@ section#skeleton section#wrapper section#navigation nav ul li a {
   height: 38px;
   margin: 0px;
 }
+section#skeleton section#wrapper section#navigation nav ul li a.nav-item {
+  margin: 13px 14px;
+  height: 14px;
+}
 section#skeleton section#wrapper section#navigation nav ul li a:hover,
 section#skeleton section#wrapper section#navigation nav ul li a.current {
   background: url('../img/navigation/hover.png');
@@ -587,51 +590,51 @@ section#skeleton section#wrapper section#navigation nav ul li a figure {
   margin: 13px 14px;
   height: 14px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-home {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-home {
   background-position: 0px -14px;
   width: 43px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-account {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-account {
   background-position: 0px -28px;
   width: 73px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-logout {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-logout {
   background-position: 0px -42px;
   width: 51px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-create {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-create {
   background-position: 0px -56px;
   width: 66px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-houses {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-houses {
   background-position: 0px -70px;
   width: 57px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-highscores {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-highscores {
   background-position: 0px -84px;
   width: 90px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-rules {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-rules {
   background-position: 0px -98px;
   width: 44px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-guilds {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-guilds {
   background-position: 0px -112px;
   width: 50px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-forum {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-forum {
   background-position: 0px -126px;
   width: 51px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-downloads {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-downloads {
   background-position: 0px -140px;
   width: 95px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-donate {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-donate {
   background-position: 0px -154px;
   width: 61px;
 }
-section#skeleton section#wrapper section#navigation nav ul li a figure.nav-button-info {
+section#skeleton section#wrapper section#navigation nav ul li a figure#nav-button-info {
   background-position: 0px -168px;
   width: 93px;
 }
@@ -775,151 +778,71 @@ section#skeleton footer {
 section#skeleton footer strong {
   color: #646464;
 }
-section.case {
-  /* Account Login & Account Create */
-
-  /* Account Index (as online) */
-
+/*
+|--------------------------------------------------------------------------
+| Route Specific Styling
+|--------------------------------------------------------------------------
+|
+| This is where you add route specific stylings.
+|
+*/
+section#route-login,
+section#route-account-create {
+  margin: 10px 0;
 }
-section.case table.case-table {
-  padding: 10px;
-  width: 100%;
-}
-section.case #case-account-index table.case-table.account-table tbody tr th,
-section.case #case-account-create table.case-table.account-table tbody tr th {
-  vertical-align: middle;
-  padding-right: 3px;
-  text-align: right;
-  font-weight: bold;
-  width: 120px;
-}
-section.case #case-account-index table.case-table.account-table tbody tr th#account-create-captcha img,
-section.case #case-account-create table.case-table.account-table tbody tr th#account-create-captcha img {
-  vertical-align: middle;
-  margin-top: 4px;
-}
-section.case #case-account-index table.case-table.account-table tbody tr td,
-section.case #case-account-create table.case-table.account-table tbody tr td {
-  vertical-align: middle;
-  height: 28px;
-}
-section.case #case-account-index table.case-table tbody tr.large-space th,
-section.case #case-account-create table.case-table tbody tr.large-space th,
-section.case #case-account-index table.case-table tbody tr.large-space td,
-section.case #case-account-create table.case-table tbody tr.large-space td {
-  padding-top: 14px;
-}
-section.case #case-account-index table.case-table tbody tr.small-space th,
-section.case #case-account-create table.case-table tbody tr.small-space th,
-section.case #case-account-index table.case-table tbody tr.small-space td,
-section.case #case-account-create table.case-table tbody tr.small-space td {
-  padding-top: 7px;
-}
-section.case #case-account-index table.case-table tbody tr td,
-section.case #case-account-create table.case-table tbody tr td {
-  vertical-align: top;
-}
-section.case #case-account-index table.case-table tbody tr td h3,
-section.case #case-account-create table.case-table tbody tr td h3 {
-  font-weight: bold;
-  margin: 0px 10px;
-  font-size: 12px;
-  padding: 0px;
-}
-section.case #case-account-index table.case-table tbody tr td.account-helpful,
-section.case #case-account-create table.case-table tbody tr td.account-helpful {
-  vertical-align: top;
-  width: 50%;
-}
-section.case #case-account-index table.case-table tbody tr td.account-helpful ul,
-section.case #case-account-create table.case-table tbody tr td.account-helpful ul {
-  padding: 5px 0px 0px 20px;
-  margin: 0px 20px;
-}
-section.case #case-account-index table.case-table tbody tr td.account-helpful ul li,
-section.case #case-account-create table.case-table tbody tr td.account-helpful ul li {
-  margin: 0px;
-}
-section.case #case-account-online section#table-account-characters table tr td:first-child,
-section.case #case-account-online section#table-account-characters table tr td:nth-child(1) {
-  text-align: center;
-  width: 8%;
-}
-section.case #case-account-online section#table-account-characters table tr td:nth-child(2) {
-  width: 40%;
-}
-section.case #case-account-online section#table-account-characters table tr td:last-child:nth-child(5) {
-  padding-right: 10px;
-  text-align: right;
-  font-size: 11px;
-  width: 20%;
-}
-section.case #case-account-online section#table-account-characters table tr td span.character-info {
-  font-size: 11px;
-  display: block;
-  color: #646464;
-}
-#route-login #form-login,
-#route-account-create #form-registration {
-  margin: 15px 0 10px;
-}
-#route-login #form-login p,
-#route-account-create #form-registration p {
+section#route-login form p,
+section#route-account-create form p {
   margin: 2px !important;
 }
-#route-login #form-login p label,
-#route-account-create #form-registration p label {
+section#route-login form p label,
+section#route-account-create form p label {
   display: inline-block;
+  width: 110px;
   padding-right: 3px;
   text-align: right;
-  width: 110px;
 }
-#route-login #form-login p.inline,
-#route-account-create #form-registration p.inline {
+section#route-login form p.inline,
+section#route-account-create form p.inline {
   width: 113px;
   text-align: right;
   padding-top: 5px;
   display: block;
   float: left;
 }
-#route-login #form-login p.inline label,
-#route-account-create #form-registration p.inline label {
+section#route-login form p.inline label,
+section#route-account-create form p.inline label {
   padding-right: 0px;
   display: inline;
 }
-#route-login #form-login ul li,
-#route-account-create #form-registration ul li {
-  margin: 3px 0;
-}
-#route-login #form-login#form-registration p#captcha-img,
-#route-account-create #form-registration#form-registration p#captcha-img {
+section#route-login #form-registration p#captcha-img,
+section#route-account-create #form-registration p#captcha-img {
   padding: 15px 0 5px;
   zoom: 1;
 }
-#route-login #form-login#form-registration p#captcha-img:after,
-#route-account-create #form-registration#form-registration p#captcha-img:after {
+section#route-login #form-registration p#captcha-img:after,
+section#route-account-create #form-registration p#captcha-img:after {
   display: block;
   visibility: hidden;
   height: 0;
   clear: both;
   content: ".";
 }
-#route-login #form-login#form-registration p#captcha-img label,
-#route-account-create #form-registration#form-registration p#captcha-img label {
+section#route-login #form-registration p#captcha-img label,
+section#route-account-create #form-registration p#captcha-img label {
   width: 113px;
   display: block;
   float: left;
 }
-#route-login #form-login#form-registration p#captcha-img label img,
-#route-account-create #form-registration#form-registration p#captcha-img label img {
+section#route-login #form-registration p#captcha-img label img,
+section#route-account-create #form-registration p#captcha-img label img {
   margin-top: 5px;
 }
-#route-login #form-login#form-registration p#captcha-img input[type="text"],
-#route-account-create #form-registration#form-registration p#captcha-img input[type="text"] {
+section#route-login #form-registration p#captcha-img input[type="text"],
+section#route-account-create #form-registration p#captcha-img input[type="text"] {
   float: left;
 }
-#route-login #form-login#form-registration p#captcha-img a#refresh-captcha,
-#route-account-create #form-registration#form-registration p#captcha-img a#refresh-captcha {
+section#route-login #form-registration p#captcha-img a#refresh-captcha,
+section#route-account-create #form-registration p#captcha-img a#refresh-captcha {
   background: url('../img/refresh.png');
   margin-top: 2px;
   display: block;
@@ -927,36 +850,25 @@ section.case #case-account-online section#table-account-characters table tr td s
   width: 24px;
   float: left;
 }
-#route-login #form-login#form-registration p#captcha-img a#refresh-captcha:hover,
-#route-account-create #form-registration#form-registration p#captcha-img a#refresh-captcha:hover {
+section#route-login #form-registration p#captcha-img a#refresh-captcha:hover,
+section#route-account-create #form-registration p#captcha-img a#refresh-captcha:hover {
   background-position: 0 24px;
 }
-#route-login #form-login#form-registration p#terms-box,
-#route-account-create #form-registration#form-registration p#terms-box {
+section#route-login #form-registration p#terms-box,
+section#route-account-create #form-registration p#terms-box {
   margin: 5px 2px 10px !important;
   display: block;
 }
-#route-login #form-login#form-registration p.pushed,
-#route-account-create #form-registration#form-registration p.pushed {
+section#route-login #form-registration p.pushed,
+section#route-account-create #form-registration p.pushed {
   padding-left: 115px;
 }
-#route-login #form-login#form-registration p label,
-#route-account-create #form-registration#form-registration p label {
+section#route-login #form-registration p label,
+section#route-account-create #form-registration p label {
   width: 110px;
 }
-#route-login #form-login#form-registration p label[for="terms"],
-#route-account-create #form-registration#form-registration p label[for="terms"] {
+section#route-login #form-registration p label[for="terms"],
+section#route-account-create #form-registration p label[for="terms"] {
   display: inline;
   width: auto;
-}
-.refresh {
-  background: url('../img/refresh.png') 0px 0px no-repeat;
-  vertical-align: middle;
-  display: inline-block;
-  margin-top: -1px;
-  height: 24px;
-  width: 24px;
-}
-.refresh:hover {
-  background-position: 0px -24px;
 }
