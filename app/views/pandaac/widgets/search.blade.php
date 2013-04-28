@@ -1,13 +1,16 @@
-<section class="case">
+<section class="case" id="widget-search">
 	<h2><img src="{{ Theme::asset('img/cases/titles/quicksearch.png') }}" alt="Quick Search"></h2>
 
-	{{ Form::open(['class' => 'search-guild-character']) }}
+	{{ Form::open(['url' => 'search']) }}
+		{{ Form::token() }}
+
+		<section class="columns">
+			<section class="column">{{ Form::label('search', 'Name:') }}</section>
+			<section class="column">{{ Form::text('search', '', ['class' => 'ui-autocomplete']) }}</section>
+		</section>
+
 		<p>
-			{{ Form::label('search', 'Name:') }}
-			{{ Form::text('search', '', array('class' => 'ui-autocomplete')) }}
-		</p>
-		<p>
-			{{ Form::submit('Search', array('class' => 'button')) }}
+			{{ Form::submit('Search', ['class' => 'button']) }}
 		</p>
 	{{ Form::close() }}
 </section>

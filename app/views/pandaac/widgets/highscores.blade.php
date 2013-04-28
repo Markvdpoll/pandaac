@@ -1,5 +1,5 @@
 @if ( ! Route::is('highscores'))
-	<section class="case">
+	<section class="case" id="widget-highscores">
 		<h2><img src="{{ Theme::asset('img/cases/titles/quickscores.png') }}" alt="Quick Scores"></h2>
 		<p>
 			Displaying the 10 top players.

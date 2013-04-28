@@ -347,6 +347,13 @@ form label {
 .unavailable {
   color: #c22f2f;
 }
+.highlight {
+  color: #e6e6e6;
+}
+.indent {
+  margin-left: 20px;
+  line-height: 140%;
+}
 .button {
   background: url('../img/form/button.png');
   text-shadow: 0px 1px 0px #000000;
@@ -777,6 +784,26 @@ section#skeleton footer {
 }
 section#skeleton footer strong {
   color: #646464;
+}
+/*
+|--------------------------------------------------------------------------
+| Widget Specific Styling
+|--------------------------------------------------------------------------
+|
+| This is where you add widget specific stylings.
+|
+*/
+section#widget-search section.columns {
+  margin-top: 10px;
+}
+section#widget-search section.columns section.column:first-child {
+  margin: 6px 0 0 13px;
+  width: 40px;
+}
+section#widget-account-login section.columns section.column:first-child {
+  margin: 7px 5px 0 0;
+  text-align: right;
+  width: 60px;
 }
 /*
 |--------------------------------------------------------------------------

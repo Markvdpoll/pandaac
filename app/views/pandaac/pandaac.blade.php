@@ -5,7 +5,7 @@
 
 	<link href="{{ Theme::asset('img/favicon.png') }}" rel="icon" type="image/png">
 
-	<!-- Stylesheets -->
+	{{-- Stylesheets --}}
 	<link href="{{ Theme::asset('css/reset.css') }}" rel="stylesheet" media="all">
 	<link href="{{ Theme::asset('css/default.css') }}" rel="stylesheet" media="all">
 	<link href="{{ Theme::asset('css/jquery-ui/lightness.css') }}" rel="stylesheet" media="all">
@@ -18,7 +18,7 @@
 <body>
 
 	<section id="skeleton">
-		<!-- Header -->
+		{{-- Header --}}
 		<header>
 			<section id="logo">
 				<a href="{{ URL::to('/') }}"><img src="{{ Theme::asset('img/logo.png') }}" alt="Logo"></a>
@@ -26,7 +26,7 @@
 		</header>
 
 		<section id="wrapper">
-			<!-- Navigation -->
+			{{-- Navigation --}}
 			<section id="navigation">
 				<nav>
 					@section("navigation")
@@ -50,9 +50,9 @@
 				</nav>
 			</section>
 
-			<!-- Content -->
+			{{-- Content --}}
 			<section id="content">
-				<!-- Left Sidepanel -->
+				{{-- Left Sidepanel --}}
 				<section class="panel" id="left">
 					@yield("submenu")
 
@@ -60,7 +60,7 @@
 					@include('widgets.highscores')
 				</section>
 
-				<!-- Main Content -->
+				{{-- Main Content --}}
 				<section class="panel">
 					<section class="case">
 						<h1>
@@ -75,7 +75,7 @@
 					</section>
 				</section>
 
-				<!-- Right Sidepanel -->
+				{{-- Right Sidepanel --}}
 				<section class="panel" id="right">
 					@include('widgets.account')
 					@include('widgets.status')
@@ -83,7 +83,7 @@
 			</section>
 		</section>
 
-		<!-- Footer -->
+		{{-- Footer --}}
 		<footer>
 			<div style="color: #666;">
 				Copyright &copy; {{ Server::name() }} 
@@ -98,7 +98,7 @@
 	</section>
 
 
-	<!-- JavaScripts -->
+	{{-- JavaScripts --}}
 	<script>var SITEURL = '{{ URL::to("/") }}';</script>
 	<script src="{{ Theme::asset('js/jquery-1.7.2.min.js') }}"></script>
 	<script src="{{ Theme::asset('js/jquery-ui-1.8.23.min.js') }}"></script>

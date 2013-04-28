@@ -1,4 +1,4 @@
-<section class="case">
+<section class="case" id="widget-status">
 	<h2><img src="{{ Theme::asset('img/cases/titles/server-status.png') }}" alt="Server Status"></h2>
 
 	<p>
@@ -6,17 +6,19 @@
 		@if (Server::status())
 			<span class="online">online</span>.<br>
 		
-			There are <span style="color: #e6e6e6;">{{ Server::players() }}</span> out of 
-			<span style="color: #e6e6e6;">{{ Server::maxPlayers() }}</span> players online.
+			There are <span class="highlight">{{ Server::players() }}</span> out of 
+			<span class="highlight">{{ Server::maxPlayers() }}</span> players online.
 		@else
 			<span class="offline">offline</span>.
 		@endif
 	</p>
-	<p style="margin-left: 20px; line-height: 140%;">
-		<strong>IP:</strong> <span style="color: #e6e6e6;">{{ Server::ip() }}</span><br>
-		<strong>Port:</strong> <span style="color: #e6e6e6;">{{ Server::port() }}</span><br>
-		<strong>Client:</strong> <span style="color: #e6e6e6;">{{ Server::protocol() }}</span>
+
+	<p class="indent">
+		<strong>IP:</strong> <span class="highlight">{{ Server::ip() }}</span><br>
+		<strong>Port:</strong> <span class="highlight">{{ Server::port() }}</span><br>
+		<strong>Client:</strong> <span class="highlight">{{ Server::protocol() }}</span>
 	</p>
+
 	@if (Server::status())
 		<p>
 			Why don't you have a look whether your friends or foes are <a href="">online</a>!
